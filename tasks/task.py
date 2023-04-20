@@ -43,7 +43,7 @@ class FlyingBird:
         return lambda: print('AttributeError: ' + "'" + self.name + "'" + ' object has no attribute ' + "'" + name + "'")
 
 
-class NoFlyingBird:
+class NonFlyingBird:
 
     def __init__(self, name, ration = 'fish'):
         self.name = name
@@ -101,5 +101,3 @@ class SuperBird:
 
 
 
-s = SuperBird("Gull")
-print(str(s))
