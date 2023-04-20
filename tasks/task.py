@@ -15,7 +15,7 @@ class Bird:
         return string
 
     def __getattr__(self, name):
-        return lambda: print('AttributeError: ' + self.name + ' object has no attribute ' + "'" + name + "'")
+        raise AttributeError(self.name + ' object has no attribute ' + "'" + name + "'")
 
 class FlyingBird:
     def __init__(self, name, ration = 'grains'):
@@ -40,7 +40,7 @@ class FlyingBird:
         return string
 
     def __getattr__(self, name):
-        return lambda: print('AttributeError: ' + "'" + self.name + "'" + ' object has no attribute ' + "'" + name + "'")
+        raise AttributeError(self.name + ' object has no attribute ' + "'" + name + "'")
 
 
 class NonFlyingBird:
@@ -66,7 +66,7 @@ class NonFlyingBird:
         return string
 
     def __getattr__(self, name):
-        return lambda: print('AttributeError: ' + self.name + ' object has no attribute ' + "'" + name + "'")
+        raise AttributeError( self.name + ' object has no attribute ' + "'" + name + "'")
 
 
 
@@ -96,8 +96,7 @@ class SuperBird:
         return string
 
     def __getattr__(self, name):
-        return lambda: print('AttributeError: ' + self.name + ' object has no attribute ' + "'" + name + "'")
-
+        raise AttributeError(self.name + ' object has no attribute ' + "'" + name + "'")
 
 
 
