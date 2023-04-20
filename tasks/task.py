@@ -14,6 +14,9 @@ class Bird:
         string = str(self.name) + ' ' + 'bird can walk and fly'
         return string
 
+    def __getattr__(self, name):
+        return lambda: print('AttributeError: ' + self.name + ' object has no attribute ' + "'" + name + "'")
+
 class FlyingBird:
     def __init__(self, name, ration = 'grains'):
         self.name = name
@@ -36,7 +39,12 @@ class FlyingBird:
         string = self.name + ' ' + 'bird can walk and fly'
         return string
 
+    def __getattr__(self, name):
+        return lambda: print('AttributeError: ' + "'" + self.name + "'" + ' object has no attribute ' + "'" + name + "'")
+
+
 class NoFlyingBird:
+
     def __init__(self, name, ration = 'fish'):
         self.name = name
         self.ration = ration
@@ -57,7 +65,13 @@ class NoFlyingBird:
         string = self.name + ' ' + 'bird can walk and swim'
         return string
 
+    def __getattr__(self, name):
+        return lambda: print('AttributeError: ' + self.name + ' object has no attribute ' + "'" + name + "'")
+
+
+
 class SuperBird:
+
     def __init__(self, name, ration = 1):
         self.name = name
 
@@ -81,9 +95,11 @@ class SuperBird:
         string = self.name + ' ' + 'bird can walk, swim and fly'
         return string
 
-p = NoFlyingBird("Penguin")
-print(p.eat())
+    def __getattr__(self, name):
+        return lambda: print('AttributeError: ' + self.name + ' object has no attribute ' + "'" + name + "'")
 
 
 
 
+s = SuperBird("Gull")
+print(str(s))
